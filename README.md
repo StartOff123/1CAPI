@@ -1,1 +1,1 @@
-# API fom 1C Enterprice
+# API for 1C Enterprice
