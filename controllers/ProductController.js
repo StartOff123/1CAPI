@@ -56,7 +56,8 @@ export const postAddProduct = (req, res) => {
 
 export const deleteProduct = (req, res) => {
     try {
-        const sql = `DELETE FROM products WHERE id = ${req.body.id}`
+        console.log(req.body)
+        const sql = `DELETE FROM products WHERE id = ${req.params.id}`
         db.query(sql, (error, result) => {
             if (error) {
                 console.log('Ошибка при удалении данных в таблице "products": ' + error)

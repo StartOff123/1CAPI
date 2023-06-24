@@ -29,7 +29,7 @@ app.get('/create-product-tabel', ConfigDataBaseController.createProductTabel)
 
 app.get('/product-all', ProductController.getAllProducts)
 app.post('/product-add', ProductController.postAddProduct)
-app.delete('/product-delete', ProductController.deleteProduct)
+app.delete('/product-delete/:id', ProductController.deleteProduct)
 
 app.get('/', (_, res) => res.send('Сервер запущен.'))
 
