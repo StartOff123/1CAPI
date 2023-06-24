@@ -8,6 +8,7 @@ export const getAllProducts = (req, res) => {
             if (error) {
                 console.log('Ошибка получиения всех данных из таблицы "products": ' + error)
                 throw res.status(400).json({
+                    code: 'ERR_PRODUCT_TABLE',
                     message: 'Ошибка получиения всех данных из таблицы "products"',
                     error
                 })
@@ -18,6 +19,7 @@ export const getAllProducts = (req, res) => {
     } catch (error) {
         console.log('Ошибка получиения всех данных из таблицы "products": ' + error)
         res.status(400).json({
+            code: 'ERR_PRODUCT_TABLE',
             message: 'Ошибка получиения всех данных из таблицы "products"',
             error
         })
@@ -32,6 +34,8 @@ export const postAddProduct = (req, res) => {
             if (error) {
                 console.log('Ошибка при записи данных в таблицу "products": ' + error)
                 throw res.status(400).json({
+                    code: 'ERR_ADD_PRODUCT',
+                    title: req.body.title,
                     message: 'Ошибка при записи данных в таблицу "products"',
                     error
                 })
@@ -43,6 +47,7 @@ export const postAddProduct = (req, res) => {
     } catch (error) {
         console.log('Ошибка при записи данных в таблицу "products": ' + error)
         res.status(400).json({
+            code: 'ERR_ADD_PRODUCT',
             message: 'Ошибка при записи данных в таблицу "products"',
             error
         })
@@ -56,6 +61,7 @@ export const deleteProduct = (req, res) => {
             if (error) {
                 console.log('Ошибка при удалении данных в таблице "products": ' + error)
                 throw res.status(400).json({
+                    code: 'ERR_DELETE_PRODUCT',
                     message: 'Ошибка при удалении данных в таблице "products""',
                     error
                 })
@@ -68,6 +74,7 @@ export const deleteProduct = (req, res) => {
     } catch (error) {
         console.log('Ошибка при удалении данных в таблице "products": ' + error)
         res.status(400).json({
+            code: 'ERR_DELETE_PRODUCT',
             message: 'Ошибка при удалении данных в таблице "products""',
             error
         })
