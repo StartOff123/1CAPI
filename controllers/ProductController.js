@@ -41,7 +41,9 @@ export const postAddProduct = (req, res) => {
                 })
             }
 
-            res.json(result)
+            res.json({
+                success: true
+            })
         })
 
     } catch (error) {
@@ -56,7 +58,6 @@ export const postAddProduct = (req, res) => {
 
 export const deleteProduct = (req, res) => {
     try {
-        console.log(req.body)
         const sql = `DELETE FROM products WHERE id = ${req.params.id}`
         db.query(sql, (error, result) => {
             if (error) {
@@ -76,7 +77,7 @@ export const deleteProduct = (req, res) => {
         console.log('Ошибка при удалении данных в таблице "products": ' + error)
         res.status(400).json({
             code: 'ERR_DELETE_PRODUCT',
-            message: 'Ошибка при удалении данных в таблице "products""',
+            message: 'Ошибка при удалении данных в таблице "products"',
             error
         })
     }
